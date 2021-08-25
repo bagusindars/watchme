@@ -1,0 +1,402 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap');
+
+:root{
+    --color-red:rgb(220, 22, 35);
+    --color-white: #ffffff;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+body{
+    font-family: 'Poppins', sans-serif;
+    /* background: #DCDFEA; */
+    background-color: var(--color-white);
+    display: flex;
+    justify-content: center;
+    /* margin: 30px 0; */
+}
+
+input,button{
+    font-family: 'Poppins', sans-serif;
+}
+
+.container{
+    padding: 30px 35px;
+    width: 100%;
+    /* background: var(--color-white); */
+    /* border-radius: 25px; */
+    /* box-shadow: 0px 10px 20px 1px #D9DCE8; */
+}
+
+a{
+    text-decoration: none;
+}
+
+input:focus, textarea:focus, select:focus{
+        outline: none;
+    }
+
+.mt-1{
+    margin-top: 1rem;
+}
+
+.mt-2{
+    margin-top: 2rem;
+}
+.mt-3{
+    margin-top: 3rem;
+}
+
+.grid-container{
+    display: grid;
+    grid-template-columns: repeat(12 , 1fr) ;
+    grid-gap: 15px;
+    grid-auto-rows: minmax(100px,auto);
+}
+
+.grid-col-2{
+    grid-column: span 2;
+}
+
+
+.btn{
+    cursor: pointer;
+    border-radius: 35px;
+    border: none;
+    padding: 10px 40px;
+}
+
+
+.btn-primary{
+    box-shadow: rgb(220 22 35 / 90%) 0px 1px 9px;
+    background:var(--color-red);
+    color: var(--color-white);
+}
+
+
+.inline-side{
+    display: flex;
+}
+
+.inline-side > * {
+    margin-right: 10px;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    height: 60px;
+}
+
+nav > ul > li{
+    display: inline;
+    font-weight: 500;
+    margin-right: 25px;
+}
+
+nav .brand-logo{
+    color: var(--color-red);
+}
+nav .brand span{
+    color: var(--color-red);
+    margin-left:5px;
+}
+
+nav a{
+    color: #BDBACF;
+}
+
+nav a.active{
+    color: #000000;
+}
+
+nav form button{
+    background: transparent;
+    border: none;
+}
+
+.searchbar{
+    background: var(--color-white) ;
+    height: 40px;
+    border-radius: 20px;
+    box-shadow: 0px 10px 20px 1px #d9dce8da;
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.searchbar input{
+    height: 100%;
+    border-radius: 0 20px 20px 0;
+    border: none;
+    padding: 0 5px;
+    color: #4C4C66;
+}
+
+.searchbar i{
+    cursor: pointer;
+    padding: 10px;
+    color: #4C4C66;
+}
+.rating{
+    color: yellow;
+}
+
+#banner{
+    position: relative;
+    width: 100%;
+    height: 450px;
+}
+
+#banner #image-box{
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+}
+
+#banner img{
+    object-fit: cover;
+    object-position: 50% 10%;
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: none;
+}
+
+#banner  #image-box::after{
+    content: ""; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:linear-gradient( to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 1) );
+    opacity: .7;
+    z-index: 1;
+    border-radius: 20px;
+}
+
+#banner #detail{
+    z-index: 100;
+    position: absolute;
+    left: 7%;
+    right: 7%;
+    bottom: 15%;
+    color: var(--color-white);
+}
+
+#banner .title{
+    font-size: 50px;
+}
+
+#banner .text-plain{
+    font-size: 13px;
+}
+
+#banner .desc{
+    font-weight: 300;
+}
+
+#banner loading-spinner, .item .img-frame loading-spinner{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.error-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    flex-direction: column;
+    text-align: center;
+}
+
+.error-box span{
+    color: var(--color-red);
+}
+
+.item{
+    width: 100%;
+    height: 350px;   
+    position: relative;
+    margin-bottom: 5px;
+    z-index: 99999;
+    cursor: pointer;
+}
+
+
+.item .img-frame{
+    width: 100%;
+    height: 80%;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    transition: .3s;
+    box-shadow: 0px 10px 20px 1px #b8b8b8f1;
+}
+
+.item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+}
+
+.item .img-frame loading-spinner{
+    z-index: 99;
+}
+
+.item .img-frame::after{
+    content: ""; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 101%;
+    background-image:linear-gradient( to bottom, rgba(194, 194, 194, 0.2), rgba(0, 0, 0, 0.5) );
+    opacity: .7;
+    z-index: 1;
+    border-radius: 20px;
+}
+
+.item .img-frame:hover , .item .img-frame:hover::after{
+       transform: scale(1.05,1.05);
+}
+
+.item .detail{
+    padding: 5px;
+}
+
+.item .detail .title{
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.item .button-rating{
+    position: absolute;
+    right: 7%;
+    bottom: 15%;
+    z-index: 99999;
+    text-align:center;
+    font-weight: 300;
+    font-size: 13px;
+    background-color: var(--color-red);
+    box-shadow: rgb(220 22 35 / 90%) 0px 1px 9px;
+    color: var(--color-white);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+loadmore-component{
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    margin-top: 20px;
+}
+
+footer span{
+    color: var(--color-red);
+}
+@media screen and (max-width: 1250px) {
+
+    .grid-col-md-3{
+        grid-column: span 3;
+    }
+
+}
+
+@media screen and (max-width: 900px) {
+    .grid-col-sm-4{
+        grid-column: span 4;
+    }
+
+
+}
+
+@media screen and (max-width: 650px) {
+
+    #banner{
+        margin-top: 40px;
+    }
+
+    #banner .title{
+        font-size: 35px;
+    }
+
+    #banner .desc{
+        font-size: 13px;
+    }
+
+        nav > ul > li{
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .grid-col-xs-6{
+        grid-column: span 6;
+    }
+
+
+
+    #searchbar{
+        width: 100%;
+        margin: 15px 0 20px;
+    }
+
+    .searchbar input{
+        width: 100%;
+    }
+
+
+    
+}
+
+
+@media screen and (max-width: 500px) {
+      #banner .title{
+        font-size: 25px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+     #banner .desc{
+        display: none;
+    }
+    #banner .text-plain{
+        display: none;
+    }
+
+    .grid-col-xxs-12{
+        grid-column: span 12;
+    }
+
+}
+
+@media screen and (max-width: 350px) {
+    nav .brand span{
+        display: none;
+    }
+}
